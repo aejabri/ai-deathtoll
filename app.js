@@ -3,10 +3,13 @@ const state = {
   filter: "all",
   includeAviation: false
 };
+
 const $ = (id) => document.getElementById(id);
+
 function pad(n) {
   return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
 function animateCount(el, to) {
   const start = 0;
   const dur = 1400;
@@ -19,10 +22,12 @@ function animateCount(el, to) {
   };
   requestAnimationFrame(tick);
 }
+
 function headlineTotal() {
   const cats = state.data.categories.filter((c) => state.includeAviation || !c.excludedFromHeadline);
   return cats.reduce((s, c) => s + (c.count || 0), 0);
 }
+
 function renderCats() {
   $("cats").innerHTML = state.data.categories.map((c) => `
     <article class="cat ${c.emerging ? "emerging" : ""}" style="border-color:${c.color}44">
@@ -32,6 +37,7 @@ function renderCats() {
     </article>
   `).join("");
 }
+
 function renderStats() {
   $("stats").innerHTML = state.data.supportingStats.map((s) => `
     <article class="stat">
@@ -41,6 +47,7 @@ function renderStats() {
     </article>
   `).join("");
 }
+
 function renderLog() {
   const rows = state.data.cases
     .filter((c) => state.filter === "all" || c.category === state.filter)
@@ -63,6 +70,7 @@ function renderLog() {
     </article>
   `).join("");
 }
+
 function renderHeadline() {
   const total = headlineTotal();
   animateCount($("headline-count"), total);
@@ -71,6 +79,7 @@ function renderHeadline() {
   const high = state.includeAviation ? state.data.headline.linkedHigh + 346 : state.data.headline.linkedHigh;
   $("headline-range").textContent = `CURATED FLOOR ${pad(total)}  ·  COMPILED UPPER ${pad(high)}`;
 }
+
 function toastEmerging() {
   const emerging = state.data.categories.filter((c) => c.emerging);
   emerging.forEach((c, i) => {
@@ -83,12 +92,18 @@ function toastEmerging() {
     }, 900 + i * 1600);
   });
 }
+
 function tickClock() {
   $("clock").textContent = new Date().toISOString().replace("T", " ").slice(0, 19) + "Z";
 }
+
 async function boot() {
-  const res = await fetch("data/toll.json?ts=" + Date.now(), { cache: "no-store" });
-  state.data = await res.json();
+  if (window.TOLL) {
+    state.data = window.TOLL;
+  } else {
+    const res = await fetch("data/toll.json?ts=" + Date.now(), { cache: "no-store" });
+    state.data = await res.json();
+  }
   $("as-of").textContent = "AS OF " + state.data.asOf;
   $("disclaimer").textContent = state.data.meta.disclaimer;
   renderHeadline();
@@ -98,6 +113,7 @@ async function boot() {
   toastEmerging();
   tickClock();
   setInterval(tickClock, 1000);
+
   document.querySelectorAll(".chip").forEach((btn) => {
     btn.onclick = () => {
       document.querySelectorAll(".chip").forEach((b) => b.classList.remove("active"));
@@ -111,6 +127,7 @@ async function boot() {
     renderHeadline();
   };
 }
+
 boot().catch((err) => {
   $("headline-note").textContent = "Failed to load ledger: " + err.message;
 });
