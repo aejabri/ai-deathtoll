@@ -49,7 +49,7 @@ function renderHeads() {
     { id: "closed", name: "CLOSED-LOOP", sub: "Machine finished the kill", hint: "Autonomous weapons + factory robots" + (state.includeAviation ? " + 737 MAX" : ""), n: L.closed },
     { id: "signed", name: "HUMAN-SIGNED", sub: "Man approved the AI target first", hint: "Lavender / Maven-style lists. Human still released the strike.", n: L.signed },
     { id: "advisory", name: "ADVISORY AI", sub: "AI shaped a human act", hint: "ADAS crashes, chatbot-linked deaths, alleged medical algorithms.", n: L.advisory },
-    { id: "floor", name: "LINKED FLOOR", sub: "All three · no double count", hint: "Closed-Loop + Human-Signed + Advisory.", n: L.floor }
+    { id: "floor", name: "DOCUMENTED FLOOR", sub: "Lower bound · not a ceiling", hint: "Sum of the three heads with no double count. Floor = smallest number we can defend today, not the true total and not a verdict.", n: L.floor }
   ];
   $("heads").innerHTML = cards.map((h) => `
     <article class="head ${h.id}">
@@ -62,10 +62,10 @@ function renderHeads() {
 function renderHeadline() {
   const total = headlineTotal();
   animateCount($("headline-count"), total);
-  $("headline-label").textContent = "LINKED FLOOR";
-  $("headline-note").textContent = "Four ledgers, one floor. Closed-Loop = the machine completed the act. Human-Signed = a person approved an AI-built target before execution. Advisory = a human acted after an AI suggestion. Linked Floor is the sum with no double counting.";
+  $("headline-label").textContent = "DOCUMENTED FLOOR · الحد الأدنى الموثَّق";
+  $("headline-note").textContent = "Floor here means lower bound, not a building floor and not a ceiling. Closed-Loop = the machine completed the act. Human-Signed = a person approved an AI-built target before the strike. Advisory = a human acted after an AI suggestion. Documented Floor = those three added once, no double count, not a court verdict.";
   const high = state.includeAviation ? state.data.headline.linkedHigh + 346 : state.data.headline.linkedHigh;
-  $("headline-range").textContent = `CURATED FLOOR ${pad(total)}  ·  COMPILED UPPER ${pad(high)}`;
+  $("headline-range").textContent = `DOCUMENTED FLOOR ${pad(total)}  ·  COMPILED UPPER ${pad(high)}`;
   renderHeads();
 }
 function toastEmerging() {
