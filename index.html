@@ -4,55 +4,43 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AI DEATHTOLL — sourced fatality tracker</title>
-  <meta name="description" content="Daily-updated graphical counter of fatalities publicly linked to AI, automation, and algorithmic systems, with case-by-case sources." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
   <div class="scanlines"></div>
   <div class="vignette"></div>
   <div id="toast-layer"></div>
   <header class="topbar">
-    <div class="brand">
-      <span class="pulse-dot"></span>
-      <span>AI DEATHTOLL</span>
-      <span class="tag">LIVE LEDGER</span>
-    </div>
-    <div class="top-meta">
-      <span id="as-of">AS OF —</span>
-      <span id="clock"></span>
-    </div>
+    <div class="brand"><span class="pulse-dot"></span><span>AI DEATHTOLL</span><span class="tag">LIVE LEDGER</span></div>
+    <div class="top-meta"><span id="as-of">AS OF —</span><span id="clock"></span></div>
   </header>
   <main>
     <section class="hero">
       <p class="eyebrow">PUBLICLY LINKED FATALITIES · NOT PROVEN SOLE CAUSATION</p>
       <div class="counter-wrap">
-        <div class="counter-label" id="headline-label">DOCUMENTED LINKED FATALITIES</div>
+        <div class="counter-label" id="headline-label">LINKED FLOOR</div>
         <div class="counter" id="headline-count">000</div>
         <div class="range" id="headline-range"></div>
       </div>
       <p class="hero-note" id="headline-note"></p>
       <label class="toggle">
         <input type="checkbox" id="include-aviation" />
-        Include 737 MAX flight-control automation (346) in the headline
+        Fold 737 MAX flight-control automation (346) into Closed-Loop
       </label>
+      <div class="heads" id="heads"></div>
     </section>
     <section class="cats" id="cats"></section>
-    <section class="stats">
-      <h2>STATISTICS BEHIND THE HEADLINE</h2>
-      <div class="stat-grid" id="stats"></div>
-    </section>
+    <section class="stats"><h2>STATISTICS BEHIND THE HEADLINE</h2><div class="stat-grid" id="stats"></div></section>
     <section class="method">
       <h2>HOW THE NUMBER IS BUILT</h2>
       <p id="disclaimer"></p>
       <ul>
-        <li><strong>Grade A</strong> — official investigation, regulator, or occupational-safety tally.</li>
-        <li><strong>Grade B</strong> — major news investigation or active lawsuit with named victims.</li>
-        <li><strong>Grade C</strong> — compiled research or alleged contribution still being litigated.</li>
+        <li><strong>CLOSED-LOOP</strong> — machine finished the kill (autonomous weapons + factory robots; 737 MAX optional).</li>
+        <li><strong>HUMAN-SIGNED</strong> — a person approved an AI-built target before execution (Lavender / Maven).</li>
+        <li><strong>ADVISORY AI</strong> — a human acted after an AI suggestion (ADAS, chatbots, medical algorithms).</li>
+        <li><strong>LINKED FLOOR</strong> — the three lanes added once. No double count.</li>
       </ul>
-      <p>HITL TARGETS = man-approved AI lists. AUTO-WEAPONS = machines choosing the final aim point. Category spines set totals; named cards are evidence, not extra stacked bodies.</p>
     </section>
     <section class="log">
       <div class="log-head">
@@ -71,9 +59,7 @@
       <div id="log"></div>
     </section>
   </main>
-  <footer>
-    Curated public ledger. Update <code>toll.js</code> and push main. Daily Grok automation + Vercel cron.
-  </footer>
+  <footer>Four-lane ledger. Update <code>toll.js</code> and push main.</footer>
   <script src="toll.js"></script>
   <script src="app.js"></script>
 </body>

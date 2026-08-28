@@ -16,13 +16,24 @@ main { max-width:1100px; margin:0 auto; padding:28px 18px 80px; }
 .range { color:var(--amber); font-family:"Share Tech Mono",monospace; margin-top:8px; }
 .hero-note { max-width:760px; margin:16px auto 0; color:var(--mute); }
 .toggle { display:inline-flex; gap:8px; align-items:center; margin-top:18px; color:#e0cfc8; font-size:14px; }
+.heads { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:28px; text-align:left; }
+.head { background:#100606; border:1px solid var(--line); padding:14px 12px 12px; }
+.head-name { font-family:"Share Tech Mono",monospace; font-size:11px; letter-spacing:0.14em; color:var(--amber); }
+.head-n { font-family:"Share Tech Mono",monospace; font-size:clamp(28px,4vw,42px); color:var(--red); line-height:1.1; margin:6px 0 4px; }
+.head-sub { font-size:13px; color:#f0e4e0; }
+.head p { margin:8px 0 0; color:var(--mute); font-size:12px; }
+.head.floor { border-color:#ff2a2a88; box-shadow:0 0 18px rgba(255,42,42,0.12); }
+.head.signed { border-color:#ff004466; }
+.head.closed { border-color:#8b000066; }
+.head.advisory { border-color:#d4a01755; }
+@media (max-width:900px) { .heads { grid-template-columns:1fr 1fr; } }
 .cats { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:12px; margin:36px 0; }
 .cat { background:var(--panel); border:1px solid var(--line); padding:14px; position:relative; overflow:hidden; }
 .cat.emerging::after { content:"EMERGING"; position:absolute; top:8px; right:8px; font-size:10px; letter-spacing:0.08em; color:var(--amber); font-family:"Share Tech Mono",monospace; }
 .cat .n { font-family:"Share Tech Mono",monospace; font-size:36px; color:var(--red); }
 .cat h3 { margin:0 0 6px; font-size:13px; letter-spacing:0.08em; }
 .cat p { margin:8px 0 0; color:var(--mute); font-size:12px; }
-.split { margin-top:8px; font-family:"Share Tech Mono",monospace; font-size:10px; color:var(--amber); letter-spacing:0.04em; }
+.split { margin-top:8px; font-family:"Share Tech Mono",monospace; font-size:10px; color:var(--amber); }
 .stats h2,.method h2,.log h2 { font-family:"Share Tech Mono",monospace; letter-spacing:0.12em; font-size:16px; color:var(--amber); }
 .stat-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px; }
 .stat { border:1px solid var(--line); background:#100606; padding:16px; }
@@ -34,17 +45,14 @@ main { max-width:1100px; margin:0 auto; padding:28px 18px 80px; }
 .filters { display:flex; flex-wrap:wrap; gap:6px; }
 .chip { background:transparent; color:var(--mute); border:1px solid var(--line); padding:6px 10px; cursor:pointer; font-family:"Share Tech Mono",monospace; font-size:12px; }
 .chip.active { border-color:var(--red); color:#fff; }
-.card { border-left:3px solid var(--red); background:#100707; margin:12px 0; padding:16px 16px 14px; }
+.card { border-left:3px solid var(--red); background:#100707; margin:12px 0; padding:16px; }
 .card .meta { font-family:"Share Tech Mono",monospace; font-size:12px; color:var(--amber); display:flex; gap:10px; flex-wrap:wrap; }
-.card h3 { margin:8px 0 6px; }
-.card p { margin:0; color:#d9cbc6; }
 .sources { margin-top:10px; display:flex; flex-wrap:wrap; gap:8px; }
 .sources a { color:#ffd7a0; font-size:13px; }
 .grade { border:1px solid currentColor; padding:0 6px; }
-.toast { position:fixed; right:16px; bottom:16px; background:#2a0b0b; border:1px solid var(--red); padding:12px 14px; z-index:80; min-width:240px; box-shadow:0 0 24px rgba(255,0,0,0.25); animation:pop 0.35s ease-out; }
+.toast { position:fixed; right:16px; bottom:16px; background:#2a0b0b; border:1px solid var(--red); padding:12px 14px; z-index:80; min-width:240px; animation:pop 0.35s ease-out; }
 .toast b { display:block; font-family:"Share Tech Mono",monospace; color:var(--red); }
 footer { border-top:1px solid var(--line); padding:18px; color:#8a7a76; font-size:12px; text-align:center; }
-code { color:#ffd7a0; }
 @keyframes pulse { 50% { opacity:0.35; } }
 @keyframes flicker { 0%,19%,21%,100% { opacity:1; } 20% { opacity:0.72; } }
 @keyframes pop { from { transform:translateY(12px); opacity:0; } }
