@@ -1,16 +1,16 @@
 window.TOLL = {
-  asOf: "2026-09-28",
+  asOf: "2026-09-29",
   meta: {
-    asOf: "2026-09-28",
+    asOf: "2026-09-29",
     disclaimer: "Linkage is not proven sole causation. Category spines (NHTSA SGO vehicles, compiled chatbot research) set the subcounters. Named cards are evidence, not extra additions on top of those spines. 737 MAX / MCAS is tracked but excluded from the headline unless the visitor toggles it on. Floor = smallest sourced total we can defend today."
   },
   headline: {
-    linkedHigh: 210
+    linkedHigh: 211
   },
   categories: [
     { id: "vehicles", short: "VEHICLES", count: 71, color: "#ff6b4a", tone: "NHTSA Standing General Order ADS/ADAS fatal reports, compiled via AutoPilotWatch. System engaged ≤30s of impact is not a fault finding.", split: "69 ADAS · 2 ADS" },
     { id: "chatbots", short: "CHATBOTS", count: 35, color: "#c9a227", tone: "aimortality.org compiled floor: 18 users + 17 third parties across 24 incidents, Mar 2023–Aug 2026. Alleged contribution, not sole cause." },
-    { id: "robots", short: "ROBOTS", count: 13, color: "#5b8def", tone: "KOSHA industrial-robot spine (10, 2020–Aug 2024) plus three separately sourced US OSHA robot-arm fatalities not inside that Korean aggregate." },
+    { id: "robots", short: "ROBOTS", count: 14, color: "#5b8def", tone: "KOSHA industrial-robot spine (10, 2020–Aug 2024) plus four separately sourced robot-arm fatalities not inside that Korean aggregate (Jinju 2025, two US OSHA cases, Ottogi SF Goseong Sep 2026)." },
     { id: "military", short: "AUTO-WEAPONS", count: 5, color: "#d94c7a", tone: "Closed-loop only: NYT-documented July 2026 Kharkiv AI-guided strike (3 civilians) plus New Scientist account of a Ukrainian autonomous-drone test that killed soldiers (~2). Not the wider remotely piloted drone war." },
     { id: "hitl", short: "HITL TARGETS", count: 0, color: "#9b7ed9", emerging: true, tone: "Lavender / Gospel / Where’s Daddy? are documented as human-signed targeting aids. No defendable named-death census is added to the floor. 37,000 flagged is not 37,000 counted dead." },
     { id: "medical", short: "MEDICAL", count: 0, color: "#3db8a0", emerging: true, tone: "Clinical-algorithm and chatbot-as-clinician harm is tracked as evidence. Survived cases and chatbot-spine deaths are not double-counted here." },
@@ -117,6 +117,21 @@ window.TOLL = {
       sources: [
         { name: "Chosun Biz / KOSHA", url: "https://biz.chosun.com/en/en-society/2025/01/18/GGRRWIDRJ5BBPJNM5CPNF5JHMQ/" },
         { name: "Korea Bizwire", url: "http://koreabizwire.com/rising-industrial-robot-accidents-highlight-urgent-need-for-workplace-safety/304106" }
+      ]
+    },
+    {
+      date: "2026-09-25",
+      category: "robots",
+      fatalities: 1,
+      title: "Ottogi SF robotic palletizer — Goseong plant",
+      location: "Goseong, South Gyeongsang, South Korea",
+      status: "POLICE / LABOR MINISTRY",
+      grade: "A",
+      summary: "Subcontracted worker in his 40s crushed by a robotic palletizer during a loading-test restart at Ottogi SF (canned seafood / cup noodles). Equipment stopped after a pallet fault; it was restarted while he was still in the cell. Injured 21 Sep 2026; died 25 Sep after surgery (lumbar fracture, then sepsis / acute renal failure). After the published KOSHA Aug-2024 cutoff, so added to the robot count. Linkage is automation contact, not an AI-planning finding.",
+      sources: [
+        { name: "Aju Press", url: "https://www.ajupress.com/view/20260928173270683" },
+        { name: "Yonhap Infomax", url: "https://en.infomaxai.com/news/articleView.html?idxno=140915" },
+        { name: "Kyunghyang Shinmun", url: "https://www.khan.co.kr/en/article/202609281659007" }
       ]
     },
     {
