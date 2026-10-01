@@ -1,7 +1,7 @@
 window.TOLL = {
-  asOf: "2026-09-30",
+  asOf: "2026-10-01",
   meta: {
-    asOf: "2026-09-30",
+    asOf: "2026-10-01",
     disclaimer: "Linkage is not proven sole causation. Category spines (NHTSA SGO vehicles, compiled chatbot research) set the subcounters. Named cards are evidence, not extra additions on top of those spines. 737 MAX / MCAS is tracked but excluded from the headline unless the visitor toggles it on. Floor = smallest sourced total we can defend today."
   },
   headline: {
@@ -32,7 +32,7 @@ window.TOLL = {
       location: "United States (25 states in AutoPilotWatch compile)",
       status: "SPINE",
       grade: "A",
-      summary: "Mandatory manufacturer reports under Standing General Order 2021-01. AutoPilotWatch’s public compile lists 71 fatal incidents: 69 Level-2 ADAS, 2 ADS. Engagement ≤30 seconds of impact is a reporting trigger, not a causation verdict. Tesla is 57 of 71. Named Tesla cards below sit inside this spine and are not added again.",
+      summary: "Mandatory manufacturer reports under Standing General Order 2021-01. AutoPilotWatch’s public compile lists 71 fatal incidents: 69 Level-2 ADAS, 2 ADS. Engagement ≤ 30 seconds of impact is a reporting trigger, not a causation verdict. Tesla is 57 of 71. Named Tesla cards below sit inside this spine and are not added again.",
       sources: [
         { name: "AutoPilotWatch fatalities", url: "https://www.autopilotwatch.com/fatalities" },
         { name: "NHTSA Standing General Order", url: "https://www.nhtsa.gov/laws-regulations/standing-general-order-crash-reporting" }
