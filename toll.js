@@ -7,14 +7,45 @@ window.TOLL = {
   headline: {
     linkedHigh: 212
   },
+  overall: {
+    war: 5,
+    civil: 121,
+    floor: 126
+  },
+  divisions: [
+    {
+      id: "military",
+      short: "MILITARY",
+      label: "Terrorism/War/Genocide",
+      count: 5,
+      color: "#d94c7a",
+      subs: [
+        { id: "autonomous", short: "FULLY AUTONOMOUS", count: 5, tone: "Closed-loop only: NYT-documented July 2026 Kharkiv AI-guided strike (3 civilians) plus New Scientist account of a Ukrainian autonomous-drone test that killed soldiers (~2). No human in the terminal loop." },
+        { id: "approver", short: "MAN AS FINAL TRIGGER/APPROVER", count: 0, tone: "Lavender / Gospel / Where\u2019s Daddy? documented as human-signed targeting aids. No defendable named-death census added. 37,000 flagged is not 37,000 counted dead." },
+        { id: "loop", short: "MAN IN THE LOOP", count: 0, tone: "Remote-piloted or supervised systems. Wider remotely piloted drone war is not counted here." }
+      ]
+    },
+    {
+      id: "civil",
+      short: "NON-MILITARY",
+      label: "Civil",
+      count: 121,
+      color: "#5b8def",
+      subs: [
+        { id: "autonomous", short: "FULLY AUTONOMOUS", count: 15, tone: "Industrial robots that completed the contact once powered (KOSHA spine of 10, 2020\u2013Aug 2024, plus five separately sourced robot-arm fatalities)." },
+        { id: "approver", short: "MAN AS FINAL TRIGGER/APPROVER", count: 0, tone: "Clinical algorithms where a human approved an AI recommendation. Emerging category; no counted deaths yet." },
+        { id: "loop", short: "MAN IN THE LOOP", count: 106, tone: "ADAS/AV with a supervising driver (NHTSA SGO 71) plus chatbot/LLM interactions where a human acted after AI output (aimortality.org compiled 35)." }
+      ]
+    }
+  ],
   categories: [
-    { id: "vehicles", short: "VEHICLES", count: 71, color: "#ff6b4a", tone: "NHTSA Standing General Order ADS/ADAS fatal reports, compiled via AutoPilotWatch. System engaged \u226430s of impact is not a fault finding.", split: "69 ADAS \u00b7 2 ADS" },
-    { id: "chatbots", short: "CHATBOTS", count: 35, color: "#c9a227", tone: "aimortality.org compiled floor: 18 users + 17 third parties across 24 incidents, Mar 2023\u2013Aug 2026. Alleged contribution, not sole cause." },
-    { id: "robots", short: "ROBOTS", count: 15, color: "#5b8def", tone: "KOSHA industrial-robot spine (10, 2020\u2013Aug 2024) plus five separately sourced robot-arm fatalities not inside that Korean aggregate (Jinju 2025, two US OSHA cases, Ottogi SF Goseong Sep 2026, Hamamatsu Japan Jan 2026)." },
-    { id: "military", short: "AUTO-WEAPONS", count: 5, color: "#d94c7a", tone: "Closed-loop only: NYT-documented July 2026 Kharkiv AI-guided strike (3 civilians) plus New Scientist account of a Ukrainian autonomous-drone test that killed soldiers (~2). Not the wider remotely piloted drone war." },
-    { id: "hitl", short: "HITL TARGETS", count: 0, color: "#9b7ed9", emerging: true, tone: "Lavender / Gospel / Where\u2019s Daddy? are documented as human-signed targeting aids. No defendable named-death census is added to the floor. 37,000 flagged is not 37,000 counted dead." },
-    { id: "medical", short: "MEDICAL", count: 0, color: "#3db8a0", emerging: true, tone: "Clinical-algorithm and chatbot-as-clinician harm is tracked as evidence. Survived cases and chatbot-spine deaths are not double-counted here." },
-    { id: "aviation", short: "AVIATION", count: 346, color: "#8a8a8a", tone: "737 MAX / MCAS flight-control automation. Tracked, excluded from headline unless toggled." }
+    { id: "vehicles", short: "VEHICLES", count: 71, color: "#ff6b4a", tone: "NHTSA Standing General Order ADS/ADAS fatal reports, compiled via AutoPilotWatch. System engaged \u226430s of impact is not a fault finding.", split: "69 ADAS \u00b7 2 ADS", division: "civil", autonomy: "loop" },
+    { id: "chatbots", short: "CHATBOTS", count: 35, color: "#c9a227", tone: "aimortality.org compiled floor: 18 users + 17 third parties across 24 incidents, Mar 2023\u2013Aug 2026. Alleged contribution, not sole cause.", division: "civil", autonomy: "loop" },
+    { id: "robots", short: "ROBOTS", count: 15, color: "#5b8def", tone: "KOSHA industrial-robot spine (10, 2020\u2013Aug 2024) plus five separately sourced robot-arm fatalities not inside that Korean aggregate (Jinju 2025, two US OSHA cases, Ottogi SF Goseong Sep 2026, Hamamatsu Japan Jan 2026).", division: "civil", autonomy: "autonomous" },
+    { id: "military", short: "AUTO-WEAPONS", count: 5, color: "#d94c7a", tone: "Closed-loop only: NYT-documented July 2026 Kharkiv AI-guided strike (3 civilians) plus New Scientist account of a Ukrainian autonomous-drone test that killed soldiers (~2). Not the wider remotely piloted drone war.", division: "military", autonomy: "autonomous" },
+    { id: "hitl", short: "HITL TARGETS", count: 0, color: "#9b7ed9", emerging: true, tone: "Lavender / Gospel / Where\u2019s Daddy? are documented as human-signed targeting aids. No defendable named-death census is added to the floor. 37,000 flagged is not 37,000 counted dead.", division: "military", autonomy: "approver" },
+    { id: "medical", short: "MEDICAL", count: 0, color: "#3db8a0", emerging: true, tone: "Clinical-algorithm and chatbot-as-clinician harm is tracked as evidence. Survived cases and chatbot-spine deaths are not double-counted here.", division: "civil", autonomy: "approver" },
+    { id: "aviation", short: "AVIATION", count: 346, color: "#8a8a8a", tone: "737 MAX / MCAS flight-control automation. Tracked, excluded from headline unless toggled.", division: "civil", autonomy: "autonomous" }
   ],
   supportingStats: [
     { stat: "71", label: "NHTSA SGO fatal AV/ADAS incidents (AutoPilotWatch compile)", source: "AutoPilotWatch / NHTSA SGO", url: "https://www.autopilotwatch.com/fatalities" },
@@ -36,7 +67,9 @@ window.TOLL = {
       sources: [
         { name: "AutoPilotWatch fatalities", url: "https://www.autopilotwatch.com/fatalities" },
         { name: "NHTSA Standing General Order", url: "https://www.nhtsa.gov/laws-regulations/standing-general-order-crash-reporting" }
-      ]
+      ],
+      division: "civil",
+      autonomy: "loop"
     },
     {
       date: "2026-07-12",
@@ -49,7 +82,9 @@ window.TOLL = {
       summary: "Maryland State Police: Model 3 turning left from Route 301 onto Governor\u2019s Park Lane failed to yield to a Harley-Davidson. Dead: motorcyclist Matthew Vowell, 48; passenger Krystal Vowell, 47; Tesla passenger Adriana Maxwell, 22. Electrek later matched Tesla SGO filings that marked Autopilot/FSD verified engaged. Counted inside the 71, not added on top.",
       sources: [
         { name: "Electrek July 2026 SGO match", url: "https://electrek.co/2026/09/15/tesla-four-fatal-driver-assist-crashes-july-2026/" }
-      ]
+      ],
+      division: "civil",
+      autonomy: "loop"
     },
     {
       date: "2026-06-19",
@@ -63,7 +98,9 @@ window.TOLL = {
       sources: [
         { name: "Reuters / NTSB", url: "https://www.reuters.com/legal/litigation/tesla-sued-over-fatal-texas-crash-linked-autopilot-2026-06-24/" },
         { name: "NYT", url: "https://www.nytimes.com/2026/06/22/business/tesla-texas-autopilot-crash-nhtsa.html" }
-      ]
+      ],
+      division: "civil",
+      autonomy: "loop"
     },
     {
       date: "2026-09-05",
@@ -77,7 +114,9 @@ window.TOLL = {
       sources: [
         { name: "aimortality.org", url: "https://aimortality.org/" },
         { name: "aimortality report", url: "https://aimortality.org/report.html" }
-      ]
+      ],
+      division: "civil",
+      autonomy: "loop"
     },
     {
       date: "2026-02-10",
@@ -90,7 +129,9 @@ window.TOLL = {
       summary: "aimortality case #17, instrumental pathway. OpenAI had flagged and banned an account; a second account was created. Eight killed including children. Counted inside the compiled 35.",
       sources: [
         { name: "aimortality report case 17", url: "https://aimortality.org/report.html" }
-      ]
+      ],
+      division: "civil",
+      autonomy: "loop"
     },
     {
       date: "2025-04-17",
@@ -103,7 +144,9 @@ window.TOLL = {
       summary: "Two killed at FSU Student Union (Robert Morales, Tiru Chabba). Florida AG later opened a criminal inquiry into OpenAI over alleged ChatGPT role, later expanded. Counted inside the compiled 35.",
       sources: [
         { name: "aimortality.org", url: "https://aimortality.org/" }
-      ]
+      ],
+      division: "civil",
+      autonomy: "loop"
     },
     {
       date: "2024-08-01",
@@ -117,7 +160,9 @@ window.TOLL = {
       sources: [
         { name: "Chosun Biz / KOSHA", url: "https://biz.chosun.com/en/en-society/2025/01/18/GGRRWIDRJ5BBPJNM5CPNF5JHMQ/" },
         { name: "Korea Bizwire", url: "http://koreabizwire.com/rising-industrial-robot-accidents-highlight-urgent-need-for-workplace-safety/304106" }
-      ]
+      ],
+      division: "civil",
+      autonomy: "autonomous"
     },
     {
       date: "2026-09-25",
@@ -132,7 +177,9 @@ window.TOLL = {
         { name: "Aju Press", url: "https://www.ajupress.com/view/20260928173270683" },
         { name: "Yonhap Infomax", url: "https://en.infomaxai.com/news/articleView.html?idxno=140915" },
         { name: "Kyunghyang Shinmun", url: "https://www.khan.co.kr/en/article/202609281659007" }
-      ]
+      ],
+      division: "civil",
+      autonomy: "autonomous"
     },
     {
       date: "2025-06-21",
@@ -146,7 +193,9 @@ window.TOLL = {
       sources: [
         { name: "Yahoo News / Shizuoka Asahi TV", url: "https://news.yahoo.co.jp/articles/0fd950b516f948ffcc15e06a71cebf83776e6623" },
         { name: "Realtime News NAVI", url: "https://reaitimenews.com/entry/hamamatsu-robot-labor-death-2026" }
-      ]
+      ],
+      division: "civil",
+      autonomy: "autonomous"
     },
     {
       date: "2025-01-14",
@@ -159,7 +208,9 @@ window.TOLL = {
       summary: "Worker in his 50s fatally struck by a robotic arm after entering a live workstation. Reported January 2025, after the published KOSHA Aug-2024 cutoff, so added to the robot count.",
       sources: [
         { name: "Chosun Biz", url: "https://biz.chosun.com/en/en-society/2025/01/18/GGRRWIDRJ5BBPJNM5CPNF5JHMQ/" }
-      ]
+      ],
+      division: "civil",
+      autonomy: "autonomous"
     },
     {
       date: "2024-12-02",
@@ -172,7 +223,9 @@ window.TOLL = {
       summary: "18-year-old entered a robotic enclosure to clean a sensor. A coworker reset the cell. The arm struck and killed him. Not inside the KOSHA spine.",
       sources: [
         { name: "OSHA 172270.015", url: "https://www.osha.gov/ords/imis/accidentsearch.accident_detail?id=172270.015" }
-      ]
+      ],
+      division: "civil",
+      autonomy: "autonomous"
     },
     {
       date: "2024-02-22",
@@ -185,7 +238,9 @@ window.TOLL = {
       summary: "44-year-old operator entered a caged palletizing cell. Employer stated the robot picked him up as if he were a pallet. Died of chest crush injuries. Not inside the KOSHA spine.",
       sources: [
         { name: "OSHA 164368.015", url: "https://www.osha.gov/ords/imis/accidentsearch.accident_detail?id=164368.015" }
-      ]
+      ],
+      division: "civil",
+      autonomy: "autonomous"
     },
     {
       date: "2026-07-06",
@@ -198,7 +253,9 @@ window.TOLL = {
       summary: "NYT, 24 Aug 2026: drone programmed toward a gas station then selected its exact aimpoint with an onboard AI module (Nvidia Jetson Orin cited). Killed Tetiana Bubynets, 19, and two others. First documented civilian deaths attributed to that Russian self-targeting experiment, per cited experts. Closed-loop lane.",
       sources: [
         { name: "New York Times", url: "https://www.nytimes.com/2026/08/24/world/europe/russia-drones-autonomous-ai-kill-ukraine-war.html" }
-      ]
+      ],
+      division: "military",
+      autonomy: "autonomous"
     },
     {
       date: "2026-06-10",
@@ -211,7 +268,9 @@ window.TOLL = {
       summary: "New Scientist: a Ukrainian defence-industry official said a one-off test of 10 AI-controlled drones with no human in the terminal loop killed \u2018a couple of soldiers\u2019 and a truck. Counted as 2 on a conservative reading. Not independently filmed.",
       sources: [
         { name: "New Scientist", url: "https://www.newscientist.com/article/2529849-fully-autonomous-drones-have-killed-human-soldiers-for-the-first-time/" }
-      ]
+      ],
+      division: "military",
+      autonomy: "autonomous"
     },
     {
       date: "2024-04-03",
@@ -225,7 +284,9 @@ window.TOLL = {
       sources: [
         { name: "+972 Magazine", url: "https://www.972mag.com/lavender-ai-israeli-army-gaza/" },
         { name: "The Verge", url: "https://www.theverge.com/2024/4/4/24120352/israel-lavender-artificial-intelligence-gaza-ai" }
-      ]
+      ],
+      division: "military",
+      autonomy: "approver"
     },
     {
       date: "2019-03-10",
@@ -238,7 +299,9 @@ window.TOLL = {
       summary: "Lion Air 610 and Ethiopian 302. Flight-control automation (MCAS) is the classic closed-loop aviation case. Tracked here, kept out of the documented floor unless the visitor folds aviation in.",
       sources: [
         { name: "NTSB / public record summary", url: "https://www.ntsb.gov/" }
-      ]
+      ],
+      division: "civil",
+      autonomy: "autonomous"
     }
   ]
 };
