@@ -20,6 +20,34 @@ function lanes() {
   return { closed, signed, advisory, floor: closed + signed + advisory };
 }
 function headlineTotal() { return lanes().floor; }
+function renderDivisions() {
+  if (!state.data.divisions) return;
+  const war = state.data.overall?.war ?? 0;
+  const civil = state.data.overall?.civil ?? 0;
+  let html = `<section class="divisions"><h2>MAIN DIVISIONS</h2><div class="overall-totals">
+    <article class="overall war"><div class="head-name">TERRORISM / WAR / GENOCIDE</div><div class="head-n">${pad(war)}</div><p>Military division total</p></article>
+    <article class="overall civil"><div class="head-name">CIVIL</div><div class="head-n">${pad(civil)}</div><p>Non-military division total</p></article>
+  </div><div class="div-grid">`;
+  state.data.divisions.forEach((d) => {
+    html += `<article class="division" style="border-color:${d.color}66">
+      <h3>${d.short} <span style="color:${d.color}">${pad(d.count)}</span></h3>
+      <p class="div-label">${d.label}</p>
+      <div class="subs">`;
+    d.subs.forEach((s) => {
+      html += `<div class="sub"><b>${s.short}</b><span class="sub-n">${pad(s.count)}</span><p>${s.tone}</p></div>`;
+    });
+    html += `</div></article>`;
+  });
+  html += `</div></section>`;
+  const existing = document.getElementById("divisions-root");
+  if (existing) existing.innerHTML = html;
+  else {
+    const el = document.createElement("div");
+    el.id = "divisions-root";
+    el.innerHTML = html;
+    document.querySelector("main").insertBefore(el, document.querySelector(".cats"));
+  }
+}
 function renderCats() {
   $("cats").innerHTML = state.data.categories.map((c) => `
     <article class="cat ${c.emerging ? "emerging" : ""}" style="border-color:${c.color}44">
@@ -87,7 +115,7 @@ async function boot() {
   else state.data = await (await fetch("data/toll.json?ts=" + Date.now(), { cache: "no-store" })).json();
   $("as-of").textContent = "AS OF " + (state.data.asOf || (state.data.meta && state.data.meta.asOf) || "—");
   $("disclaimer").textContent = state.data.meta.disclaimer;
-  renderHeadline(); renderCats(); renderStats(); renderLog(); toastEmerging();
+  renderHeadline(); renderDivisions(); renderCats(); renderStats(); renderLog(); toastEmerging();
   tickClock(); setInterval(tickClock, 1000);
   document.querySelectorAll(".chip").forEach((btn) => {
     btn.onclick = () => {
