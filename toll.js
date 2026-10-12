@@ -1,16 +1,16 @@
 window.TOLL = {
-  asOf: "2026-10-11",
+  asOf: "2026-10-12",
   meta: {
-    asOf: "2026-10-11",
+    asOf: "2026-10-12",
     disclaimer: "Linkage is not proven sole causation. Category spines (NHTSA SGO vehicles, compiled chatbot research) set the subcounters. Named cards are evidence, not extra additions on top of those spines. 737 MAX / MCAS is tracked but excluded from the headline unless the visitor toggles it on. Floor = smallest sourced total we can defend today."
   },
   headline: {
-    linkedHigh: 211
+    linkedHigh: 212
   },
   categories: [
     { id: "vehicles", short: "VEHICLES", count: 71, color: "#ff6b4a", tone: "NHTSA Standing General Order ADS/ADAS fatal reports, compiled via AutoPilotWatch. System engaged \u226430s of impact is not a fault finding.", split: "69 ADAS \u00b7 2 ADS" },
     { id: "chatbots", short: "CHATBOTS", count: 35, color: "#c9a227", tone: "aimortality.org compiled floor: 18 users + 17 third parties across 24 incidents, Mar 2023\u2013Aug 2026. Alleged contribution, not sole cause." },
-    { id: "robots", short: "ROBOTS", count: 14, color: "#5b8def", tone: "KOSHA industrial-robot spine (10, 2020\u2013Aug 2024) plus four separately sourced robot-arm fatalities not inside that Korean aggregate (Jinju 2025, two US OSHA cases, Ottogi SF Goseong Sep 2026)." },
+    { id: "robots", short: "ROBOTS", count: 15, color: "#5b8def", tone: "KOSHA industrial-robot spine (10, 2020\u2013Aug 2024) plus five separately sourced robot-arm fatalities not inside that Korean aggregate (Jinju 2025, two US OSHA cases, Ottogi SF Goseong Sep 2026, Hamamatsu Japan Jan 2026)." },
     { id: "military", short: "AUTO-WEAPONS", count: 5, color: "#d94c7a", tone: "Closed-loop only: NYT-documented July 2026 Kharkiv AI-guided strike (3 civilians) plus New Scientist account of a Ukrainian autonomous-drone test that killed soldiers (~2). Not the wider remotely piloted drone war." },
     { id: "hitl", short: "HITL TARGETS", count: 0, color: "#9b7ed9", emerging: true, tone: "Lavender / Gospel / Where\u2019s Daddy? are documented as human-signed targeting aids. No defendable named-death census is added to the floor. 37,000 flagged is not 37,000 counted dead." },
     { id: "medical", short: "MEDICAL", count: 0, color: "#3db8a0", emerging: true, tone: "Clinical-algorithm and chatbot-as-clinician harm is tracked as evidence. Survived cases and chatbot-spine deaths are not double-counted here." },
@@ -132,6 +132,20 @@ window.TOLL = {
         { name: "Aju Press", url: "https://www.ajupress.com/view/20260928173270683" },
         { name: "Yonhap Infomax", url: "https://en.infomaxai.com/news/articleView.html?idxno=140915" },
         { name: "Kyunghyang Shinmun", url: "https://www.khan.co.kr/en/article/202609281659007" }
+      ]
+    },
+    {
+      date: "2025-06-21",
+      category: "robots",
+      fatalities: 1,
+      title: "Hamamatsu auto-parts robotic arm \u2014 death Jan 2026",
+      location: "Hamamatsu, Shizuoka, Japan",
+      status: "LABOR STANDARDS / REFERRED",
+      grade: "B",
+      summary: "Worker in his 50s (reports of 53-year-old temporary employee) crushed by a robotic arm on 21 Jun 2025 while adjusting a welding-jig fixture (non-standard task). Sustained chest compression fracture; died in January 2026. Hamamatsu Labor Standards Inspection Office referred the company and then-factory manager for prosecution on 1 Oct 2026, alleging light-curtain safety sensors were not inspected or maintained and did not activate. Outside KOSHA spine; added to robot count. Linkage is industrial-robot contact, not AI decision-making.",
+      sources: [
+        { name: "Yahoo News / Shizuoka Asahi TV", url: "https://news.yahoo.co.jp/articles/0fd950b516f948ffcc15e06a71cebf83776e6623" },
+        { name: "Realtime News NAVI", url: "https://reaitimenews.com/entry/hamamatsu-robot-labor-death-2026" }
       ]
     },
     {
