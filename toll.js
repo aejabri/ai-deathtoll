@@ -1,7 +1,7 @@
 window.TOLL = {
-  asOf: "2026-10-14",
+  asOf: "2026-10-15",
   meta: {
-    asOf: "2026-10-14",
+    asOf: "2026-10-15",
     disclaimer: "Linkage is not proven sole causation. Category spines (NHTSA SGO vehicles, compiled chatbot research) set the subcounters. Named cards are evidence, not extra additions on top of those spines. 737 MAX / MCAS is tracked but excluded from the headline unless the visitor toggles it on. Floor = smallest sourced total we can defend today."
   },
   headline: {
@@ -9,8 +9,8 @@ window.TOLL = {
   },
   overall: {
     war: 5,
-    civil: 121,
-    floor: 126
+    civil: 122,
+    floor: 127
   },
   divisions: [
     {
@@ -29,10 +29,10 @@ window.TOLL = {
       id: "civil",
       short: "NON-MILITARY",
       label: "Civil",
-      count: 121,
+      count: 122,
       color: "#5b8def",
       subs: [
-        { id: "autonomous", short: "FULLY AUTONOMOUS", count: 15, tone: "Industrial robots that completed the contact once powered (KOSHA spine of 10, 2020\u2013Aug 2024, plus five separately sourced robot-arm fatalities)." },
+        { id: "autonomous", short: "FULLY AUTONOMOUS", count: 16, tone: "Industrial robots that completed the contact once powered (KOSHA spine of 10, 2020\u2013Aug 2024, plus six separately sourced robot-arm fatalities)." },
         { id: "approver", short: "MAN AS FINAL TRIGGER/APPROVER", count: 0, tone: "Clinical algorithms where a human approved an AI recommendation. Emerging category; no counted deaths yet." },
         { id: "loop", short: "MAN IN THE LOOP", count: 106, tone: "ADAS/AV with a supervising driver (NHTSA SGO 71) plus chatbot/LLM interactions where a human acted after AI output (aimortality.org compiled 35)." }
       ]
@@ -41,7 +41,7 @@ window.TOLL = {
   categories: [
     { id: "vehicles", short: "VEHICLES", count: 71, color: "#ff6b4a", tone: "NHTSA Standing General Order ADS/ADAS fatal reports, compiled via AutoPilotWatch. System engaged \u226430s of impact is not a fault finding.", split: "69 ADAS \u00b7 2 ADS", division: "civil", autonomy: "loop" },
     { id: "chatbots", short: "CHATBOTS", count: 35, color: "#c9a227", tone: "aimortality.org compiled floor: 18 users + 17 third parties across 24 incidents, Mar 2023\u2013Aug 2026. Alleged contribution, not sole cause.", division: "civil", autonomy: "loop" },
-    { id: "robots", short: "ROBOTS", count: 15, color: "#5b8def", tone: "KOSHA industrial-robot spine (10, 2020\u2013Aug 2024) plus five separately sourced robot-arm fatalities not inside that Korean aggregate (Jinju 2025, two US OSHA cases, Ottogi SF Goseong Sep 2026, Hamamatsu Japan Jan 2026).", division: "civil", autonomy: "autonomous" },
+    { id: "robots", short: "ROBOTS", count: 16, color: "#5b8def", tone: "KOSHA industrial-robot spine (10, 2020\u2013Aug 2024) plus six separately sourced robot-arm fatalities not inside that Korean aggregate (Jinju 2025, two US OSHA cases, Ottogi SF Goseong Sep 2026, Hamamatsu Japan Jan 2026, Bremen DE Oct 2026).", division: "civil", autonomy: "autonomous" },
     { id: "military", short: "AUTO-WEAPONS", count: 5, color: "#d94c7a", tone: "Closed-loop only: NYT-documented July 2026 Kharkiv AI-guided strike (3 civilians) plus New Scientist account of a Ukrainian autonomous-drone test that killed soldiers (~2). Not the wider remotely piloted drone war.", division: "military", autonomy: "autonomous" },
     { id: "hitl", short: "HITL TARGETS", count: 0, color: "#9b7ed9", emerging: true, tone: "Lavender / Gospel / Where\u2019s Daddy? are documented as human-signed targeting aids. No defendable named-death census is added to the floor. 37,000 flagged is not 37,000 counted dead.", division: "military", autonomy: "approver" },
     { id: "medical", short: "MEDICAL", count: 0, color: "#3db8a0", emerging: true, tone: "Clinical-algorithm and chatbot-as-clinician harm is tracked as evidence. Survived cases and chatbot-spine deaths are not double-counted here.", division: "civil", autonomy: "approver" },
@@ -160,6 +160,24 @@ window.TOLL = {
       sources: [
         { name: "Chosun Biz / KOSHA", url: "https://biz.chosun.com/en/en-society/2025/01/18/GGRRWIDRJ5BBPJNM5CPNF5JHMQ/" },
         { name: "Korea Bizwire", url: "http://koreabizwire.com/rising-industrial-robot-accidents-highlight-urgent-need-for-workplace-safety/304106" }
+      ],
+      division: "civil",
+      autonomy: "autonomous"
+    },
+    {
+      date: "2026-10-13",
+      category: "robots",
+      fatalities: 1,
+      title: "Bremen high-bay warehouse lifting robot \u2014 Neust\u00e4dter Hafen",
+      location: "Bremen, Germany",
+      status: "POLICE / INVESTIGATION",
+      grade: "A",
+      summary: "24-year-old worker performing maintenance on a Heberoboter (lifting robot) in a high-bay warehouse in Neust\u00e4dter Hafen (Senator-Blase-Stra\u00dfe). Clamped at the neck by the machine around 23:00 on 13 Oct 2026; died at the scene despite colleagues' first aid. Criminal police investigating exact cause. Outside any aggregate spine (post-KOSHA window and not previously sourced); added to robot count. Linkage is industrial-robot contact during maintenance, not an AI-planning finding.",
+      sources: [
+        { name: "Polizei Bremen", url: "https://aktuell.meinestadt.de/stadt-bremen/polizeimeldungen/829231493" },
+        { name: "NDR", url: "https://www.ndr.de/nachrichten/niedersachsen/oldenburg_ostfriesland/24-jaehriger-wird-in-maschine-eingeklemmt-und-stirbt,bremen-548.html" },
+        { name: "S\u00fcddeutsche Zeitung / dpa", url: "https://www.sueddeutsche.de/wirtschaft/in-maschine-eingeklemmt-toedlicher-arbeitsunfall-im-hafen-dpa.urn-newsml-dpa-com-20090101-261014-930-837287" },
+        { name: "t-online", url: "https://bremen.t-online.de/region/bremen/id_101480690/bremen-roboter-klemmt-arbeiter-ein-24-jaehriger-stirbt-vor-ort.html" }
       ],
       division: "civil",
       autonomy: "autonomous"
