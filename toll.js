@@ -1,16 +1,16 @@
 window.TOLL = {
-  asOf: "2026-10-15",
+  asOf: "2026-10-16",
   meta: {
-    asOf: "2026-10-15",
+    asOf: "2026-10-16",
     disclaimer: "Linkage is not proven sole causation. Category spines (NHTSA SGO vehicles, compiled chatbot research) set the subcounters. Named cards are evidence, not extra additions on top of those spines. 737 MAX / MCAS is tracked but excluded from the headline unless the visitor toggles it on. Floor = smallest sourced total we can defend today."
   },
   headline: {
-    linkedHigh: 212
+    linkedHigh: 214
   },
   overall: {
     war: 5,
-    civil: 122,
-    floor: 127
+    civil: 124,
+    floor: 129
   },
   divisions: [
     {
@@ -29,20 +29,20 @@ window.TOLL = {
       id: "civil",
       short: "NON-MILITARY",
       label: "Civil",
-      count: 122,
+      count: 124,
       color: "#5b8def",
       subs: [
         { id: "autonomous", short: "FULLY AUTONOMOUS", count: 16, tone: "Industrial robots that completed the contact once powered (KOSHA spine of 10, 2020\u2013Aug 2024, plus six separately sourced robot-arm fatalities)." },
         { id: "approver", short: "MAN AS FINAL TRIGGER/APPROVER", count: 0, tone: "Clinical algorithms where a human approved an AI recommendation. Emerging category; no counted deaths yet." },
-        { id: "loop", short: "MAN IN THE LOOP", count: 106, tone: "ADAS/AV with a supervising driver (NHTSA SGO 71) plus chatbot/LLM interactions where a human acted after AI output (aimortality.org compiled 35)." }
+        { id: "loop", short: "MAN IN THE LOOP", count: 108, tone: "ADAS/AV with a supervising driver (NHTSA SGO 71) plus chatbot/LLM interactions where a human acted after AI output (aimortality.org compiled 37)." }
       ]
     }
   ],
   categories: [
     { id: "vehicles", short: "VEHICLES", count: 71, color: "#ff6b4a", tone: "NHTSA Standing General Order ADS/ADAS fatal reports, compiled via AutoPilotWatch. System engaged \u226430s of impact is not a fault finding.", split: "69 ADAS \u00b7 2 ADS", division: "civil", autonomy: "loop" },
-    { id: "chatbots", short: "CHATBOTS", count: 35, color: "#c9a227", tone: "aimortality.org compiled floor: 18 users + 17 third parties across 24 incidents, Mar 2023\u2013Aug 2026. Alleged contribution, not sole cause.", division: "civil", autonomy: "loop" },
+    { id: "chatbots", short: "CHATBOTS", count: 37, color: "#c9a227", tone: "aimortality.org compiled floor: 18 users + 19 third parties across 25 incidents, Mar 2023\u2013Oct 2026. Alleged contribution, not sole cause.", division: "civil", autonomy: "loop" },
     { id: "robots", short: "ROBOTS", count: 16, color: "#5b8def", tone: "KOSHA industrial-robot spine (10, 2020\u2013Aug 2024) plus six separately sourced robot-arm fatalities not inside that Korean aggregate (Jinju 2025, two US OSHA cases, Ottogi SF Goseong Sep 2026, Hamamatsu Japan Jan 2026, Bremen DE Oct 2026).", division: "civil", autonomy: "autonomous" },
-    { id: "military", short: "AUTO-WEAPONS", count: 5, color: "#d94c7a", tone: "Closed-loop only: NYT-documented July 2026 Kharkiv AI-guided strike (3 civilians) plus New Scientist account of a Ukrainian autonomous-drone test that killed soldiers (~2). Not the wider remotely piloted drone war.", division: "military", autonomy: "autonomous" },
+    { id: "military", short: "AUTO-WEAPONS", count: 5, color: "#d94c7a", tone: "Closed-loop only: NYT-documented July 2026 Kharkiv AI-guided strike (3 civilians) plus New Scientist account of a Ukrainian autonomous-drone test that killed soldiers (~2). No human in the terminal loop.", division: "military", autonomy: "autonomous" },
     { id: "hitl", short: "HITL TARGETS", count: 0, color: "#9b7ed9", emerging: true, tone: "Lavender / Gospel / Where\u2019s Daddy? are documented as human-signed targeting aids. No defendable named-death census is added to the floor. 37,000 flagged is not 37,000 counted dead.", division: "military", autonomy: "approver" },
     { id: "medical", short: "MEDICAL", count: 0, color: "#3db8a0", emerging: true, tone: "Clinical-algorithm and chatbot-as-clinician harm is tracked as evidence. Survived cases and chatbot-spine deaths are not double-counted here.", division: "civil", autonomy: "approver" },
     { id: "aviation", short: "AVIATION", count: 346, color: "#8a8a8a", tone: "737 MAX / MCAS flight-control automation. Tracked, excluded from headline unless toggled.", division: "civil", autonomy: "autonomous" }
@@ -50,7 +50,7 @@ window.TOLL = {
   supportingStats: [
     { stat: "71", label: "NHTSA SGO fatal AV/ADAS incidents (AutoPilotWatch compile)", source: "AutoPilotWatch / NHTSA SGO", url: "https://www.autopilotwatch.com/fatalities" },
     { stat: "57", label: "of those 71 involved Tesla ADAS/ADS reports (80.3%)", source: "AutoPilotWatch", url: "https://www.autopilotwatch.com/fatalities" },
-    { stat: "35", label: "chatbot-linked fatalities in aimortality.org v3.5 (as of 5 Sep 2026)", source: "aimortality.org", url: "https://aimortality.org/" },
+    { stat: "37", label: "chatbot-linked fatalities in aimortality.org (as of 15 Oct 2026)", source: "aimortality.org", url: "https://aimortality.org/" },
     { stat: "10", label: "KOSHA industrial-robot deaths, 2020\u2013Aug 2024 (Korea)", source: "KOSHA / Chosun Biz", url: "https://biz.chosun.com/en/en-society/2025/01/18/GGRRWIDRJ5BBPJNM5CPNF5JHMQ/" },
     { stat: "37,000", label: "Lavender peak list of flagged persons \u2014 not a death count", source: "+972 Magazine", url: "https://www.972mag.com/lavender-ai-israeli-army-gaza/" }
   ],
@@ -103,14 +103,30 @@ window.TOLL = {
       autonomy: "loop"
     },
     {
-      date: "2026-09-05",
+      date: "2026-08-22",
+      category: "vehicles",
+      fatalities: 1,
+      title: "Vineland Route 55 median cross \u2014 Phillip Eastman, 68 (inside NHTSA spine)",
+      location: "Vineland, New Jersey, USA",
+      status: "INVESTIGATION",
+      grade: "B",
+      summary: "NJ State Police: 2021 Model Y southbound on Route 55 near milepost 34.6 left the roadway, crossed grass median, struck tree, entered northbound lanes and hit Chevrolet SUV head-on. SUV driver Phillip Eastman, 68, killed. Tesla SGO filing marks Autopilot/FSD \u201cVerified Engaged\u201d via telematics. Electrek matched the redacted report to the public crash. Counted inside the 71, not added on top.",
+      sources: [
+        { name: "Electrek", url: "https://electrek.co/2026/10/15/tesla-driver-assist-median-crossing-vineland/" },
+        { name: "NHTSA SGO (via Electrek match)", url: "https://www.nhtsa.gov/laws-regulations/standing-general-order-crash-reporting" }
+      ],
+      division: "civil",
+      autonomy: "loop"
+    },
+    {
+      date: "2026-10-15",
       category: "chatbots",
-      fatalities: 35,
-      title: "aimortality.org compiled chatbot spine",
+      fatalities: 37,
+      title: "aimortality.org compiled chatbot spine (updated)",
       location: "Multiple countries",
       status: "SPINE",
       grade: "A",
-      summary: "Public companion-mortality database last updated 5 Sep 2026: 35 fatalities, 24 incidents, Mar 2023\u2013Aug 2026. 18 AI users died; 17 third parties were killed by users. ChatGPT cited in 29. Named mass-casualty cards below sit inside this 35 and are not added again.",
+      summary: "Public companion-mortality database last updated 15 Oct 2026: 37 fatalities, 25 incidents, Mar 2023\u2013Oct 2026. 18 AI users died; 19 third parties were killed by users. ChatGPT cited in 31. Named mass-casualty cards below sit inside this 37 and are not added again. Includes Acton MA double homicide (Aug 2026, ChatGPT fantasy searches alleged).",
       sources: [
         { name: "aimortality.org", url: "https://aimortality.org/" },
         { name: "aimortality report", url: "https://aimortality.org/report.html" }
@@ -134,6 +150,23 @@ window.TOLL = {
       autonomy: "loop"
     },
     {
+      date: "2026-08-11",
+      category: "chatbots",
+      fatalities: 2,
+      title: "Acton MA double homicide \u2014 Arjun Aravind / ChatGPT fantasies (inside chatbot spine)",
+      location: "Acton, Massachusetts, USA",
+      status: "CRIMINAL",
+      grade: "B",
+      summary: "17-year-old Arjun Aravind charged with murder of mother Sudha Venkatesan, 45, and brother Siddharth Aravind, 14, on 11 Aug 2026. Prosecutors alleged he used ChatGPT to generate Gothic-novel-style fantasy stories and theoretical ideas about killing his family. Indicted and held without bail. Counted inside the aimortality.org compiled 37.",
+      sources: [
+        { name: "Boston.com", url: "https://www.boston.com/news/crime/2026/10/06/chat-gpt-arjun-aravind-acton-murder/" },
+        { name: "CNN", url: "https://www.cnn.com/2026/08/15/us/arjun-aravind-massachusetts-killing-chatgpt-hnk" },
+        { name: "aimortality.org", url: "https://aimortality.org/" }
+      ],
+      division: "civil",
+      autonomy: "loop"
+    },
+    {
       date: "2025-04-17",
       category: "chatbots",
       fatalities: 2,
@@ -147,179 +180,6 @@ window.TOLL = {
       ],
       division: "civil",
       autonomy: "loop"
-    },
-    {
-      date: "2024-08-01",
-      category: "robots",
-      fatalities: 10,
-      title: "KOSHA industrial-robot spine, Korea",
-      location: "South Korea",
-      status: "SPINE",
-      grade: "A",
-      summary: "Korea Occupational Safety and Health Agency: 10 workers killed in industrial-robot accidents from 2020 through August 2024, all caught-in events, most during maintenance with the cell still live. Sets the Korean robot subcounter.",
-      sources: [
-        { name: "Chosun Biz / KOSHA", url: "https://biz.chosun.com/en/en-society/2025/01/18/GGRRWIDRJ5BBPJNM5CPNF5JHMQ/" },
-        { name: "Korea Bizwire", url: "http://koreabizwire.com/rising-industrial-robot-accidents-highlight-urgent-need-for-workplace-safety/304106" }
-      ],
-      division: "civil",
-      autonomy: "autonomous"
-    },
-    {
-      date: "2026-10-13",
-      category: "robots",
-      fatalities: 1,
-      title: "Bremen high-bay warehouse lifting robot \u2014 Neust\u00e4dter Hafen",
-      location: "Bremen, Germany",
-      status: "POLICE / INVESTIGATION",
-      grade: "A",
-      summary: "24-year-old worker performing maintenance on a Heberoboter (lifting robot) in a high-bay warehouse in Neust\u00e4dter Hafen (Senator-Blase-Stra\u00dfe). Clamped at the neck by the machine around 23:00 on 13 Oct 2026; died at the scene despite colleagues' first aid. Criminal police investigating exact cause. Outside any aggregate spine (post-KOSHA window and not previously sourced); added to robot count. Linkage is industrial-robot contact during maintenance, not an AI-planning finding.",
-      sources: [
-        { name: "Polizei Bremen", url: "https://aktuell.meinestadt.de/stadt-bremen/polizeimeldungen/829231493" },
-        { name: "NDR", url: "https://www.ndr.de/nachrichten/niedersachsen/oldenburg_ostfriesland/24-jaehriger-wird-in-maschine-eingeklemmt-und-stirbt,bremen-548.html" },
-        { name: "S\u00fcddeutsche Zeitung / dpa", url: "https://www.sueddeutsche.de/wirtschaft/in-maschine-eingeklemmt-toedlicher-arbeitsunfall-im-hafen-dpa.urn-newsml-dpa-com-20090101-261014-930-837287" },
-        { name: "t-online", url: "https://bremen.t-online.de/region/bremen/id_101480690/bremen-roboter-klemmt-arbeiter-ein-24-jaehriger-stirbt-vor-ort.html" }
-      ],
-      division: "civil",
-      autonomy: "autonomous"
-    },
-    {
-      date: "2026-09-25",
-      category: "robots",
-      fatalities: 1,
-      title: "Ottogi SF robotic palletizer \u2014 Goseong plant",
-      location: "Goseong, South Gyeongsang, South Korea",
-      status: "POLICE / LABOR MINISTRY",
-      grade: "A",
-      summary: "Subcontracted worker in his 40s crushed by a robotic palletizer during a loading-test restart at Ottogi SF (canned seafood / cup noodles). Equipment stopped after a pallet fault; it was restarted while he was still in the cell. Injured 21 Sep 2026; died 25 Sep after surgery (lumbar fracture, then sepsis / acute renal failure). After the published KOSHA Aug-2024 cutoff, so added to the robot count. Linkage is automation contact, not an AI-planning finding.",
-      sources: [
-        { name: "Aju Press", url: "https://www.ajupress.com/view/20260928173270683" },
-        { name: "Yonhap Infomax", url: "https://en.infomaxai.com/news/articleView.html?idxno=140915" },
-        { name: "Kyunghyang Shinmun", url: "https://www.khan.co.kr/en/article/202609281659007" }
-      ],
-      division: "civil",
-      autonomy: "autonomous"
-    },
-    {
-      date: "2025-06-21",
-      category: "robots",
-      fatalities: 1,
-      title: "Hamamatsu auto-parts robotic arm \u2014 death Jan 2026",
-      location: "Hamamatsu, Shizuoka, Japan",
-      status: "LABOR STANDARDS / REFERRED",
-      grade: "B",
-      summary: "Worker in his 50s (reports of 53-year-old temporary employee) crushed by a robotic arm on 21 Jun 2025 while adjusting a welding-jig fixture (non-standard task). Sustained chest compression fracture; died in January 2026. Hamamatsu Labor Standards Inspection Office referred the company and then-factory manager for prosecution on 1 Oct 2026, alleging light-curtain safety sensors were not inspected or maintained and did not activate. Outside KOSHA spine; added to robot count. Linkage is industrial-robot contact, not AI decision-making.",
-      sources: [
-        { name: "Yahoo News / Shizuoka Asahi TV", url: "https://news.yahoo.co.jp/articles/0fd950b516f948ffcc15e06a71cebf83776e6623" },
-        { name: "Realtime News NAVI", url: "https://reaitimenews.com/entry/hamamatsu-robot-labor-death-2026" }
-      ],
-      division: "civil",
-      autonomy: "autonomous"
-    },
-    {
-      date: "2025-01-14",
-      category: "robots",
-      fatalities: 1,
-      title: "Jinju auto-parts robotic arm (Korea; after KOSHA window)",
-      location: "Jinju, South Gyeongsang, South Korea",
-      status: "POLICE",
-      grade: "B",
-      summary: "Worker in his 50s fatally struck by a robotic arm after entering a live workstation. Reported January 2025, after the published KOSHA Aug-2024 cutoff, so added to the robot count.",
-      sources: [
-        { name: "Chosun Biz", url: "https://biz.chosun.com/en/en-society/2025/01/18/GGRRWIDRJ5BBPJNM5CPNF5JHMQ/" }
-      ],
-      division: "civil",
-      autonomy: "autonomous"
-    },
-    {
-      date: "2024-12-02",
-      category: "robots",
-      fatalities: 1,
-      title: "OSHA: robotic arm reset while worker cleaned sensor",
-      location: "Florida, USA (Traffic Materials Supplier)",
-      status: "OSHA CLOSED",
-      grade: "A",
-      summary: "18-year-old entered a robotic enclosure to clean a sensor. A coworker reset the cell. The arm struck and killed him. Not inside the KOSHA spine.",
-      sources: [
-        { name: "OSHA 172270.015", url: "https://www.osha.gov/ords/imis/accidentsearch.accident_detail?id=172270.015" }
-      ],
-      division: "civil",
-      autonomy: "autonomous"
-    },
-    {
-      date: "2024-02-22",
-      category: "robots",
-      fatalities: 1,
-      title: "OSHA: palletizing robot treated worker as a pallet",
-      location: "United States (Markman Peat Corp.)",
-      status: "OSHA",
-      grade: "A",
-      summary: "44-year-old operator entered a caged palletizing cell. Employer stated the robot picked him up as if he were a pallet. Died of chest crush injuries. Not inside the KOSHA spine.",
-      sources: [
-        { name: "OSHA 164368.015", url: "https://www.osha.gov/ords/imis/accidentsearch.accident_detail?id=164368.015" }
-      ],
-      division: "civil",
-      autonomy: "autonomous"
-    },
-    {
-      date: "2026-07-06",
-      category: "military",
-      fatalities: 3,
-      title: "Kharkiv gas-station strike \u2014 AI-guided Russian drone",
-      location: "Kharkiv, Ukraine",
-      status: "FORENSIC / NYT",
-      grade: "A",
-      summary: "NYT, 24 Aug 2026: drone programmed toward a gas station then selected its exact aimpoint with an onboard AI module (Nvidia Jetson Orin cited). Killed Tetiana Bubynets, 19, and two others. First documented civilian deaths attributed to that Russian self-targeting experiment, per cited experts. Closed-loop lane.",
-      sources: [
-        { name: "New York Times", url: "https://www.nytimes.com/2026/08/24/world/europe/russia-drones-autonomous-ai-kill-ukraine-war.html" }
-      ],
-      division: "military",
-      autonomy: "autonomous"
-    },
-    {
-      date: "2026-06-10",
-      category: "military",
-      fatalities: 2,
-      title: "Ukrainian \u2018Terminator\u2019 fully autonomous drone test",
-      location: "Ukraine front line",
-      status: "INDUSTRY ACCOUNT",
-      grade: "C",
-      summary: "New Scientist: a Ukrainian defence-industry official said a one-off test of 10 AI-controlled drones with no human in the terminal loop killed \u2018a couple of soldiers\u2019 and a truck. Counted as 2 on a conservative reading. Not independently filmed.",
-      sources: [
-        { name: "New Scientist", url: "https://www.newscientist.com/article/2529849-fully-autonomous-drones-have-killed-human-soldiers-for-the-first-time/" }
-      ],
-      division: "military",
-      autonomy: "autonomous"
-    },
-    {
-      date: "2024-04-03",
-      category: "hitl",
-      fatalities: 0,
-      title: "Lavender / Gospel / Where\u2019s Daddy? \u2014 human-signed targeting",
-      location: "Gaza",
-      status: "INVESTIGATIVE",
-      grade: "B",
-      summary: "+972 / Local Call: Lavender marked as many as 37,000 people; officers described ~20-second rubber-stamp review. This card documents the system. It does not invent a civilian death total for the headline. HITL category count stays 0 until a sourced named-death census exists.",
-      sources: [
-        { name: "+972 Magazine", url: "https://www.972mag.com/lavender-ai-israeli-army-gaza/" },
-        { name: "The Verge", url: "https://www.theverge.com/2024/4/4/24120352/israel-lavender-artificial-intelligence-gaza-ai" }
-      ],
-      division: "military",
-      autonomy: "approver"
-    },
-    {
-      date: "2019-03-10",
-      category: "aviation",
-      fatalities: 346,
-      title: "737 MAX / MCAS \u2014 excluded from headline unless toggled",
-      location: "Jakarta (JT610) and near Addis Ababa (ET302)",
-      status: "CLOSED / CERTIFICATION",
-      grade: "A",
-      summary: "Lion Air 610 and Ethiopian 302. Flight-control automation (MCAS) is the classic closed-loop aviation case. Tracked here, kept out of the documented floor unless the visitor folds aviation in.",
-      sources: [
-        { name: "NTSB / public record summary", url: "https://www.ntsb.gov/" }
-      ],
-      division: "civil",
-      autonomy: "autonomous"
     }
   ]
 };
