@@ -1,16 +1,16 @@
 window.TOLL = {
-  asOf: "2026-10-28",
+  asOf: "2026-10-29",
   meta: {
-    asOf: "2026-10-28",
+    asOf: "2026-10-29",
     disclaimer: "Linkage is not proven sole causation. Category spines (NHTSA SGO vehicles, compiled chatbot research) set the subcounters. Named cards are evidence, not extra additions on top of those spines. 737 MAX / MCAS is tracked but excluded from the headline unless the visitor toggles it on. Floor = smallest sourced total we can defend today."
   },
   headline: {
-    linkedHigh: 215
+    linkedHigh: 216
   },
   overall: {
     war: 5,
-    civil: 126,
-    floor: 131
+    civil: 127,
+    floor: 132
   },
   divisions: [
     {
@@ -29,18 +29,18 @@ window.TOLL = {
       id: "civil",
       short: "NON-MILITARY",
       label: "Civil",
-      count: 126,
+      count: 127,
       color: "#5b8def",
       subs: [
         { id: "autonomous", short: "FULLY AUTONOMOUS", count: 16, tone: "Industrial robots that completed the contact once powered (KOSHA spine of 10, 2020\u2013Aug 2024, plus six separately sourced robot-arm fatalities)." },
         { id: "approver", short: "MAN AS FINAL TRIGGER/APPROVER", count: 0, tone: "Clinical algorithms where a human approved an AI recommendation. Emerging category; no counted deaths yet." },
-        { id: "loop", short: "MAN IN THE LOOP", count: 110, tone: "ADAS/AV with a supervising driver (NHTSA SGO 71 + 1 pending inclusion) plus chatbot/LLM interactions where a human acted after AI output (aimortality.org compiled 37 + 1 named outside-spine case)." }
+        { id: "loop", short: "MAN IN THE LOOP", count: 111, tone: "ADAS/AV with a supervising driver (NHTSA SGO 71 + 1 pending inclusion) plus chatbot/LLM interactions where a human acted after AI output (aimortality.org compiled 37 + 2 named outside-spine cases)." }
       ]
     }
   ],
   categories: [
     { id: "vehicles", short: "VEHICLES", count: 72, color: "#ff6b4a", tone: "NHTSA Standing General Order ADS/ADAS fatal reports, compiled via AutoPilotWatch (71) plus 1 named case not yet in the public compile (lag 1-2 months). System engaged \u226430s of impact is not a fault finding.", split: "70 ADAS \u00b7 2 ADS", division: "civil", autonomy: "loop" },
-    { id: "chatbots", short: "CHATBOTS", count: 38, color: "#c9a227", tone: "aimortality.org compiled floor of 37 (18 users + 19 third parties, Mar 2023\u2013Oct 2026, archived 15 Oct) plus 1 named case outside that spine (Mathias Habib, Apr 2026). Alleged contribution, not sole cause.", division: "civil", autonomy: "loop" },
+    { id: "chatbots", short: "CHATBOTS", count: 39, color: "#c9a227", tone: "aimortality.org compiled floor of 37 (18 users + 19 third parties, Mar 2023\u2013Oct 2026, archived 15 Oct) plus 2 named cases outside that spine (Mathias Habib Apr 2026; Bowen Wan Feb 2026 / lawsuit Oct 2026). Alleged contribution, not sole cause.", division: "civil", autonomy: "loop" },
     { id: "robots", short: "ROBOTS", count: 16, color: "#5b8def", tone: "KOSHA industrial-robot spine (10, 2020\u2013Aug 2024) plus six separately sourced robot-arm fatalities not inside that Korean aggregate (Jinju 2025, two US OSHA cases, Ottogi SF Goseong Sep 2026, Hamamatsu Japan Jan 2026, Bremen DE Oct 2026).", division: "civil", autonomy: "autonomous" },
     { id: "military", short: "AUTO-WEAPONS", count: 5, color: "#d94c7a", tone: "Closed-loop only: NYT-documented July 2026 Kharkiv AI-guided strike (3 civilians) plus New Scientist account of a Ukrainian autonomous-drone test that killed soldiers (~2). No human in the terminal loop.", division: "military", autonomy: "autonomous" },
     { id: "hitl", short: "HITL TARGETS", count: 0, color: "#9b7ed9", emerging: true, tone: "Lavender / Gospel / Where\u2019s Daddy? are documented as human-signed targeting aids. No defendable named-death census is added to the floor. 37,000 flagged is not 37,000 counted dead.", division: "military", autonomy: "approver" },
@@ -212,6 +212,24 @@ window.TOLL = {
         { name: "Tech Justice Law press release", url: "https://techjusticelaw.org/press-releases/multiple-tech-justice-law-lawsuits-accuse-openai-of-negligence-resulting-in-death-of-15-year-old-habib-hill-works-complaint/" },
         { name: "Al Arabiya", url: "https://www.alarabiya.net/arab-and-world/2026/10/18/%D8%B9%D8%A7%D8%A6%D9%84%D8%A9-%D9%84%D8%A8%D9%86%D8%A7%D9%86%D9%8A%D8%A9-%D8%AA%D9%82%D8%A7%D8%B6%D9%8A-open-ai-%D9%82%D8%A7%D8%AF%D8%AA-%D8%A7%D8%A8%D9%86%D9%86%D8%A7-%D8%A7%D9%84%D9%89-%D8%A7%D9%84%D8%A7%D9%86%D8%AA%D8%AD%D8%A7%D8%B1" },
         { name: "LBC Group", url: "https://www.lbcgroup.tv/news/lebanon-news/963208/lebanese-family-sues-openai-over-death-of-15-year-old-mathias-habib-la/en" }
+      ],
+      division: "civil",
+      autonomy: "loop"
+    },
+    {
+      date: "2026-02-12",
+      category: "chatbots",
+      fatalities: 1,
+      title: "Bowen Wan, 31 — ChatGPT medical taper advice (outside aimortality spine)",
+      location: "Seattle, Washington, USA",
+      status: "LAWSUIT",
+      grade: "B",
+      summary: "31-year-old Amazon software engineer Bowen Wan died of sudden unexpected death in epilepsy (SUDEP) on or about 12 Feb 2026 in her Seattle apartment. Parents Qun Wan and Meiqin Xu allege GPT-4o (ChatGPT) coached a rapid unsupervised taper of her long-term lamotrigine anti-seizure medication to zero, encouraged concealing the plan from physicians, and reassured her through 158 expressed concerns. Post-mortem lamotrigine level was ~1/5 of therapeutic minimum. Wrongful-death suit filed 27 Oct 2026 in San Francisco Superior Court (JCCP coordinated) against OpenAI and Sam Altman; NYT reviewed >270k messages. Not in aimortality.org archived 37 (coverage through 15 Oct). Added as named case outside the spine; linkage alleged, not sole causation.",
+      sources: [
+        { name: "New York Times", url: "https://www.nytimes.com/2026/10/27/well/ai-chatgpt-medication-epilepsy-death.html" },
+        { name: "TechCrunch", url: "https://techcrunch.com/2026/10/27/parents-sue-openai-alleging-gpt-4o-coached-their-daughter-off-seizure-medication/" },
+        { name: "Schenk Law Firm complaint materials", url: "https://schenklawfirm.com/press/wan/" },
+        { name: "NY Post", url: "https://nypost.com/2026/10/28/health/woman-dies-after-chatgpt-convinced-her-to-change-medication-dosage/" }
       ],
       division: "civil",
       autonomy: "loop"
