@@ -1,7 +1,7 @@
 window.TOLL = {
-  asOf: "2026-11-11",
+  asOf: "2026-11-12",
   meta: {
-    asOf: "2026-11-11",
+    asOf: "2026-11-12",
     disclaimer: "Linkage is not proven sole causation. Category spines (NHTSA SGO vehicles, compiled chatbot research) set the subcounters. Named cards are evidence, not extra additions on top of those spines. 737 MAX / MCAS is tracked but excluded from the headline unless the visitor toggles it on. Floor = smallest sourced total we can defend today."
   },
   headline: {
