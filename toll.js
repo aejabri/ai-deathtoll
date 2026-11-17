@@ -1,16 +1,16 @@
 window.TOLL = {
-  asOf: "2026-11-16",
+  asOf: "2026-11-17",
   meta: {
-    asOf: "2026-11-16",
+    asOf: "2026-11-17",
     disclaimer: "Linkage is not proven sole causation. Category spines (NHTSA SGO vehicles, compiled chatbot research) set the subcounters. Named cards are evidence, not extra additions on top of those spines. 737 MAX / MCAS is tracked but excluded from the headline unless the visitor toggles it on. Floor = smallest sourced total we can defend today."
   },
   headline: {
-    linkedHigh: 218
+    linkedHigh: 225
   },
   overall: {
     war: 5,
-    civil: 129,
-    floor: 134
+    civil: 136,
+    floor: 141
   },
   divisions: [
     {
@@ -29,17 +29,17 @@ window.TOLL = {
       id: "civil",
       short: "NON-MILITARY",
       label: "Civil",
-      count: 129,
+      count: 136,
       color: "#5b8def",
       subs: [
         { id: "autonomous", short: "FULLY AUTONOMOUS", count: 17, tone: "Industrial robots that completed the contact once powered (KOSHA spine of 10, 2020\u2013Aug 2024, plus seven separately sourced robot-arm fatalities)." },
         { id: "approver", short: "MAN AS FINAL TRIGGER/APPROVER", count: 0, tone: "Clinical algorithms where a human approved an AI recommendation. Emerging category; no counted deaths yet." },
-        { id: "loop", short: "MAN IN THE LOOP", count: 112, tone: "ADAS/AV with a supervising driver (NHTSA SGO 71 + 1 pending inclusion) plus chatbot/LLM interactions where a human acted after AI output (aimortality.org compiled 37 + 3 named outside-spine cases)." }
+        { id: "loop", short: "MAN IN THE LOOP", count: 119, tone: "ADAS/AV with a supervising driver (NHTSA SGO 71 + 8 pending inclusion) plus chatbot/LLM interactions where a human acted after AI output (aimortality.org compiled 37 + 3 named outside-spine cases)." }
       ]
     }
   ],
   categories: [
-    { id: "vehicles", short: "VEHICLES", count: 72, color: "#ff6b4a", tone: "NHTSA Standing General Order ADS/ADAS fatal reports, compiled via AutoPilotWatch (71) plus 1 named case not yet in the public compile (lag 1-2 months). System engaged \u226430s of impact is not a fault finding.", split: "70 ADAS \u00b7 2 ADS", division: "civil", autonomy: "loop" },
+    { id: "vehicles", short: "VEHICLES", count: 79, color: "#ff6b4a", tone: "NHTSA Standing General Order ADS/ADAS fatal reports, compiled via AutoPilotWatch (71) plus 8 named cases not yet in the public compile (lag 1-2 months). System engaged \u226430s of impact is not a fault finding.", split: "70 ADAS \u00b7 2 ADS", division: "civil", autonomy: "loop" },
     { id: "chatbots", short: "CHATBOTS", count: 40, color: "#c9a227", tone: "aimortality.org compiled floor of 37 (18 users + 19 third parties, Mar 2023\u2013Oct 2026, archived 15 Oct) plus 3 named cases outside that spine (Mathias Habib Apr 2026; Bowen Wan Feb 2026 / lawsuit Oct 2026; Sofia Bulgaria Oct 2026). Alleged contribution, not sole cause.", division: "civil", autonomy: "loop" },
     { id: "robots", short: "ROBOTS", count: 17, color: "#5b8def", tone: "KOSHA industrial-robot spine (10, 2020\u2013Aug 2024) plus seven separately sourced robot-arm fatalities not inside that Korean aggregate (Jinju 2025, two US OSHA cases, Ottogi SF Goseong Sep 2026, Hamamatsu Japan Jan 2026, Bremen DE Oct 2026, Guangzhou Baiyun Jun 2026).", division: "civil", autonomy: "autonomous" },
     { id: "military", short: "AUTO-WEAPONS", count: 5, color: "#d94c7a", tone: "Closed-loop only: NYT-documented July 2026 Kharkiv AI-guided strike (3 civilians) plus New Scientist account of a Ukrainian autonomous-drone test that killed soldiers (~2). No human in the terminal loop.", division: "military", autonomy: "autonomous" },
@@ -48,7 +48,7 @@ window.TOLL = {
     { id: "aviation", short: "AVIATION", count: 346, color: "#8a8a8a", tone: "737 MAX / MCAS flight-control automation. Tracked, excluded from headline unless toggled.", division: "civil", autonomy: "autonomous" }
   ],
   supportingStats: [
-    { stat: "71", label: "NHTSA SGO fatal AV/ADAS incidents (AutoPilotWatch compile; +1 pending)", source: "AutoPilotWatch / NHTSA SGO", url: "https://www.autopilotwatch.com/fatalities" },
+    { stat: "71", label: "NHTSA SGO fatal AV/ADAS incidents (AutoPilotWatch compile; +8 pending)", source: "AutoPilotWatch / NHTSA SGO", url: "https://www.autopilotwatch.com/fatalities" },
     { stat: "57", label: "of those 71 involved Tesla ADAS/ADS reports (80.3%)", source: "AutoPilotWatch", url: "https://www.autopilotwatch.com/fatalities" },
     { stat: "37", label: "chatbot-linked fatalities in aimortality.org (archived 15 Oct 2026)", source: "aimortality.org", url: "https://aimortality.org/" },
     { stat: "10", label: "KOSHA industrial-robot deaths, 2020\u2013Aug 2024 (Korea)", source: "KOSHA / Chosun Biz", url: "https://biz.chosun.com/en/en-society/2025/01/18/GGRRWIDRJ5BBPJNM5CPNF5JHMQ/" },
@@ -92,6 +92,57 @@ window.TOLL = {
       autonomy: "loop"
     },
     {
+      date: "2026-05-31",
+      category: "vehicles",
+      fatalities: 3,
+      title: "Naples I-75 Tesla Model 3 into overturned truck — 3 dead (outside NHTSA spine)",
+      location: "Naples, Florida, USA (I-75 near Pine Ridge Rd)",
+      status: "INVESTIGATION",
+      grade: "B",
+      summary: "FHP: ~3:54 a.m. 31 May 2026, 2014 Freightliner box truck drifted off southbound I-75 near Pine Ridge Rd exit, veered back and overturned blocking lanes. Good Samaritan Jonathan Garcia Arias, 25 (former Marine), stopped in BMW to help and was struck. 2023 Tesla Model 3 with five young men from Naples hit the underside of the truck and Arias at 71 mph. Two Tesla passengers (18 and 19) died at scene; Arias died later in hospital. Tesla SGO filing marks Autopilot/FSD Verified Engaged via telematics. Local coverage described truck wreck with no mention of driver-assist. Not yet in AutoPilotWatch public compile of 71. Added outside the spine; linkage alleged via Tesla telemetry, not proven sole causation.",
+      sources: [
+        { name: "Electrek", url: "https://electrek.co/2026/11/16/tesla-autopilot-fsd-overturned-truck-naples-i75/" },
+        { name: "WGCU / FHP", url: "https://www.wgcu.org/human-interest/2026-05-31/three-naples-men-fatally-hurt-in-i-75-crash-sunday-car-hits-overturned-truck-man-who-stopped-to-help" },
+        { name: "WINK News", url: "https://www.winknews.com/news/collier/naples-crash-on-i-75-kills-3-including-good-samaritan-who-stopped-to-help/article_f9163bb4-d216-4d9c-898a-98f5c7e5a9f8.html" }
+      ],
+      division: "civil",
+      autonomy: "loop"
+    },
+    {
+      date: "2026-09-12",
+      category: "vehicles",
+      fatalities: 3,
+      title: "El Dorado Hills Tesla Model Y tree strike and fire — 3 dead (outside NHTSA spine)",
+      location: "El Dorado Hills, California, USA (Serrano Parkway)",
+      status: "INVESTIGATION",
+      grade: "B",
+      summary: "CHP: ~10:38 p.m. 12 Sep 2026, 2024 Tesla Model Y with four occupants left westbound Serrano Parkway, struck tree and burst into flames. Charles Anthony Cameron, 30 (ejected), Alejandra Mendoza, 28, and Kailauna Viola Mills, 28 died; fourth passenger hospitalized with major injuries. Tesla SGO filing marks Autopilot/FSD Verified Engaged at 74 mph via telematics. Local coverage described fiery single-car wreck with no mention of driver-assist. Not yet in AutoPilotWatch public compile of 71. Added outside the spine; linkage alleged via Tesla telemetry, not proven sole causation.",
+      sources: [
+        { name: "Electrek", url: "https://electrek.co/2026/11/16/tesla-autopilot-fsd-fiery-crash-el-dorado-hills/" },
+        { name: "CBS Sacramento", url: "https://www.cbsnews.com/sacramento/news/victims-in-deadly-el-doardo-hills-tesla-crash-identified/" },
+        { name: "Mountain Democrat", url: "https://www.mtdemocrat.com/news/tesla-crash-victims-idd/article_828e34ce-c36c-4dcc-bcd8-bbe1b249566d.html" }
+      ],
+      division: "civil",
+      autonomy: "loop"
+    },
+    {
+      date: "2026-09-30",
+      category: "vehicles",
+      fatalities: 1,
+      title: "Naples Golden Gate Parkway Tesla Model X pole strike — 1 dead (outside NHTSA spine)",
+      location: "Naples, Florida, USA (Golden Gate Parkway at Estuary Blvd)",
+      status: "INVESTIGATION",
+      grade: "B",
+      summary: "FHP: ~11:43 p.m. 30 Sep 2026, 2025 Tesla Model X eastbound on Golden Gate Parkway left the road, hit traffic signal pole and overturned. 50-year-old Fort Myers woman passenger pronounced dead at scene; 48-year-old Fort Myers driver injured non-life-threatening. Tesla SGO filing marks Autopilot/FSD Verified Engaged via telematics (pre-crash speed logged). Local coverage described veering off road with no mention of driver-assist. Not yet in AutoPilotWatch public compile of 71. Added outside the spine; linkage alleged via Tesla telemetry, not proven sole causation.",
+      sources: [
+        { name: "Electrek", url: "https://electrek.co/2026/11/16/tesla-autopilot-fsd-model-x-pole-rollover-naples/" },
+        { name: "Naples Daily News / FHP", url: "https://www.naplesnews.com/story/news/local/2026/10/01/fhp-fort-myers-woman-dead-after-tesla-crash-in-naples/92037427007/" },
+        { name: "WBBH / Gulf Coast News", url: "https://www.gulfcoastnewsnow.com/article/golden-gate-pkwy-deadly-rollover-crash-collier-county/73972859" }
+      ],
+      division: "civil",
+      autonomy: "loop"
+    },
+    {
       date: "2026-09-27",
       category: "vehicles",
       fatalities: 71,
@@ -99,7 +150,7 @@ window.TOLL = {
       location: "United States (25 states in AutoPilotWatch compile)",
       status: "SPINE",
       grade: "A",
-      summary: "Mandatory manufacturer reports under Standing General Order 2021-01. AutoPilotWatch\u2019s public compile lists 71 fatal incidents: 69 Level-2 ADAS, 2 ADS. Engagement \u2264 30 seconds of impact is a reporting trigger, not a causation verdict. Tesla is 57 of 71. Named Tesla cards below that pre-date the latest compile sit inside this spine and are not added again. Newer cases (e.g. Vallejo 22 Oct) are tracked separately until they appear in the public SGO compile.",
+      summary: "Mandatory manufacturer reports under Standing General Order 2021-01. AutoPilotWatch\u2019s public compile lists 71 fatal incidents: 69 Level-2 ADAS, 2 ADS. Engagement \u2264 30 seconds of impact is a reporting trigger, not a causation verdict. Tesla is 57 of 71. Named Tesla cards below that pre-date the latest compile sit inside this spine and are not added again. Newer cases (e.g. Vallejo 22 Oct; three Electrek-matched Nov 2026 Verified Engaged crashes totaling 7) are tracked separately until they appear in the public SGO compile.",
       sources: [
         { name: "AutoPilotWatch fatalities", url: "https://www.autopilotwatch.com/fatalities" },
         { name: "NHTSA Standing General Order", url: "https://www.nhtsa.gov/laws-regulations/standing-general-order-crash-reporting" }
